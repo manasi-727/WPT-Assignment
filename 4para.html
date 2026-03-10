@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Change Paragraph Style</title>
+    <style>
+        /* Basic styling for better visibility */
+        body {
+            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            padding: 20px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Four paragraphs with unique IDs -->
+     
+    <p align="center" id="p1">This is paragraph 1.</p>
+    <p align="center"id="p2">This is paragraph 2.</p>
+    <p align="center"id="p3">This is paragraph 3.</p>
+    <p align="center"id="p4">This is paragraph 4.</p>
+
+    <!-- Color input and button -->
+    <div class="controls">
+        <label for="colorPicker">Choose text color: </label>
+        <input type="color" id="colorPicker" value="#000000">
+        <button id="changeBtn">Change Paragraph Style</button>
+    </div>
+
+    <script>
+        // Function to change paragraph styles
+        document.getElementById("changeBtn").addEventListener("click", function () {
+            try {
+                const color = document.getElementById("colorPicker").value;
+                // Loop through paragraph IDs and apply styles
+                for (let i = 1; i <= 4; i++) {
+                    const para = document.getElementById("p" + i);
+                    if (para) {
+                        para.style.color = color;
+                        para.style.fontWeight = "bold";
+                       para.style.fontStyle = "italic";
+                    }
+                }
+            } catch (error) {
+                console.error("Error changing paragraph styles:", error);
+            }
+        });
+    </script>
+
+</body>
+</html>

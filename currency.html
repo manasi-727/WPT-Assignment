@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif, sans-serif;
+            margin: 30px;
+        }
+        .converter-box {
+            border: 2px solid black;
+            padding: 20px;
+            width: 300px;
+            background-color:beige;
+        }
+        input, select, button {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        p {
+            background-color:white;
+            color:black;
+            padding: 10px;
+            border: 2px solid black;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="converter-box">
+    <h2>Currency Converter</h2>
+    <input type="number" id="amount" placeholder="Enter amount">
+    
+    <label>From:</label>
+    <select id="fromCurrency">
+        <option value="INR">Rupee</option>
+        <option value="USD">Dollar</option>
+        <option value="EUR">Euro</option>
+    </select>
+    
+    <label>To:</label>
+    <select id="toCurrency">
+        <option value="INR">Rupee</option>
+        <option value="USD">Dollar</option>
+        <option value="EUR">Euro</option>
+    </select>
+    
+    <button onclick="convertCurrency()">Convert</button>
+    <p id="result">Result will appear here</p>
+</div>
+
+<script>
+    // Example static rates (1 USD = 80 INR, 1 EUR = 90 INR)
+    const rates = {
+        "INR": 1,
+        "USD": 80,
+        "EUR": 90
+    };
+
+    function convertCurrency() {
+        let amount = parseFloat(document.getElementById("amount").value);
+        let from = document.getElementById("fromCurrency").value;
+        let to = document.getElementById("toCurrency").value;
+
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById("result").innerText = "Please enter a valid amount.";
+            return;
+        }
+
+        // Convert to INR first, then to target currency
+        let amountInINR = amount * rates[from];
+        let convertedAmount = amountInINR / rates[to];
+
+        document.getElementById("result").innerText = 
+            `${amount} ${from} = ${convertedAmount.toFixed(2)} ${to}`;
+    }
+</script>
+
+</body>
+</html>
