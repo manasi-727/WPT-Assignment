@@ -1,0 +1,84 @@
+<html>
+    <head> 
+        <title>NewUser</title> 
+
+        <script>
+            function showData()
+            {
+                document.getElementById("firstname").innerHTML=
+                 document.getElementById("firstname").value
+
+                 
+                document.getElementById("lastname").innerHTML=
+                 document.getElementById("lastname").value
+
+                 
+                document.getElementById("username").innerHTML=
+                 document.getElementById("username").value
+
+                 
+                document.getElementById("email").innerHTML=
+                 document.getElementById("email").value
+
+                 
+                document.getElementById("password").innerHTML=
+                 document.getElementById("password").value
+            }
+            </script>
+             </head>
+
+    <body>
+
+        <label for="firstname"> First Name: </label>
+        <input type="text" id="firstname"><br><br>
+
+        <label for="lastname"> Last Name: </label>
+        <input type="text" id="lastname"><br><br>
+
+        <label for="username"> UserName: </label>
+        <input type="text" id="username"><br><br>
+
+        <label> Gender: </label><br>
+        <input type="radio" name="gender"> Male<br>
+        <input type="radio" name="gender"> Female<br>
+        <input type="radio" name="gender"> Other<br><br>
+
+        <label> Known Languages: </label><br>
+        <input type="checkbox"> English<br>
+        <input type="checkbox"> Hindi<br>
+        <input type="checkbox"> Marathi<br><br>
+
+        <label for="email"> Email Id: </label>
+        <input type="email" id="email"><br><br>
+
+        <label for="password"> Password: </label>
+        <input type="password" id="password"><br><br>
+
+         <label for="rePass"> Re-Enter Password: </label>
+         <input type="password" id="rePass"><br><br>
+
+         <button onclick="showData()"> Register </button><br><br>
+
+         <h3>User Information</h3>
+
+         <table border="1">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                </tr>
+
+                <tr>
+                    <td id="firstname"></td>
+                    <td id="lastname"></td>
+                    <td id="username"></td>
+                    <td id="email"></td>
+                    <td id="password"></td>
+                </tr>
+                </table>
+             </body>
+         </html>
+        
+        
